@@ -20,9 +20,15 @@
       <td><%= picture.title %></td>
       <td><%= picture.content %></td>
       <td><%= image_tag(picture.image.url) %></td>
-      <td><%= link_to 'Show', picture %></td>
-      <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-      <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td button type="button" class="btn btn-outline-primary">
+        <i class="far fa-eye"></i>
+        <%= link_to 'Show', picture %></td>
+      <td button type="button" class="btn btn-outline-primary">
+        <i class="fas fa-edit"></i>
+        <%= link_to 'Edit', edit_picture_path(picture) %></td>
+      <td button type="button" class="btn btn-outline-primary">
+        <i class="far fa-trash-alt"></i>
+        <%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
     <% end %>
   </tbody>
