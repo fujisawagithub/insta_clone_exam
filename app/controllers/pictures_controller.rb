@@ -9,9 +9,18 @@ class PicturesController < ApplicationController
   end
 
   def new
+    if params[:back]
+    @picture = Picture.new(picture_params)
+    else
     @picture = Picture.new
+    end
   end
 
+  def confirm
+    @picture = current_user.pictures.build(picture_params)
+    render :new if @picture.invalid?
+  end
+  
   def edit
   end
 
