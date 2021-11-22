@@ -5,7 +5,8 @@ class PicturesController < ApplicationController
     @pictures = Picture.all
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @picture = if params[:back]
@@ -20,10 +21,11 @@ class PicturesController < ApplicationController
     render :new if @picture.invalid?
   end
 
-  def edit; end
+  def edit
+  end
 
   def create
-    @picture = Picture.new(picture_params)
+    @picture = current_user.pictures.build(picture_params)
 
     respond_to do |format|
       if @picture.save
