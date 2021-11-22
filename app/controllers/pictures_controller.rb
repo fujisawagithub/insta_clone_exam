@@ -9,11 +9,11 @@ class PicturesController < ApplicationController
   end
 
   def new
-    @picture = if params[:back]
-                 Picture.new(picture_params)
-               else
-                 Picture.new
-               end
+    if params[:back]
+    @picture = Picture.new(picture_params)
+    else
+    @picture = Picture.new
+    end
   end
 
   def confirm
