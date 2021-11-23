@@ -1,2 +1,0 @@
-class FacoritesController < ApplicationController
-end
