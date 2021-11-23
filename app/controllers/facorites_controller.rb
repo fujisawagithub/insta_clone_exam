@@ -1,0 +1,2 @@
+class FacoritesController < ApplicationController
+end
