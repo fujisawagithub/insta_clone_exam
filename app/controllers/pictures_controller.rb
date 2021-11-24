@@ -1,6 +1,7 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: %i[show edit update destroy]
-
+  before_action :logged_in?, only: %i[new create]
+  before_action :prohibit_access, only: %i[edit update destroy]
   def index
     @pictures = Picture.all
   end
@@ -65,6 +66,12 @@ class PicturesController < ApplicationController
   end
 
   def picture_params
-    params.require(:picture).permit(:title, :content, :image, :image_cache)
+    params.require(:picture).permit(:title, :content, :image, :image_cache, :user_id, :picture_id, :email)
+  end
+
+  def prohibit_access
+    unless current_user == @picture.user
+      redirect_to pictures_path
+    end
   end
 end

@@ -23,12 +23,14 @@
       <td button type="button" class="btn btn-outline-primary">
         <i class="far fa-eye"></i>
         <%= link_to 'Show', picture %></td>
+      <% if picture.user == current_user %>
       <td button type="button" class="btn btn-outline-primary">
         <i class="fas fa-edit"></i>
         <%= link_to 'Edit', edit_picture_path(picture) %></td>
       <td button type="button" class="btn btn-outline-primary">
         <i class="far fa-trash-alt"></i>
         <%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>
