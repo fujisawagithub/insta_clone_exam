@@ -2,5 +2,9 @@
 
 <%= render 'form', picture: @picture %>
 
-<%= link_to 'Show', @picture %> |
-<%= link_to 'Back', pictures_path %>
+<div button type="button" class="btn btn-outline-primary">
+  <i class="far fa-eye"></i>
+  <%= link_to 'Show', @picture %></div>
+<div button type="button" class="btn btn-outline-primary">
+  <i class="fas fa-backward"></i>
+  <%= link_to 'Back', pictures_path %></div>
