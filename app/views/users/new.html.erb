@@ -10,17 +10,28 @@
 </div>
 <% end %>
 <%= form_with(model: @user, local: true) do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.label :image %>
-<%= image_tag(@user.image.url) if @user.image && @user.image.url %>
-<%= f.file_field :image %>
-<%= f.hidden_field :image_cache %>
-<%= f.label :email %>
-<%= f.email_field :email %>
-<%= f.label :password %>
-<%= f.password_field :password %>
-<%= f.label :password_confirmation %>
-<%= f.password_field :password_confirmation %>
-<%= f.submit "Create my account" %>
+<div class="forms">
+  <div class="field">
+    <p><%= f.label :name %></p>
+    <%= f.text_field :name %>
+    <p><%= f.label :image %>
+      <%= image_tag(@user.image.url) if @user.image && @user.image.url %></p>
+    <p> <%= f.file_field :image %>
+      <%= f.hidden_field :image_cache %></p>
+  </div>
+  <div class="field">
+    <p> <%= f.label :email %></p>
+    <%= f.email_field :email %>
+  </div>
+  <div class="field">
+    <p><%= f.label :password %></p>
+    <%= f.password_field :password %>
+    <div class="field">
+      <p> <%= f.label :password_confirmation %></p>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <div class="field">
+      <%= f.submit "Create my account" %></div>
+  </div>
+</div>
 <% end %>

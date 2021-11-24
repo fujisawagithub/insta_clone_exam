@@ -4,12 +4,10 @@
   <strong>Title:</strong>
   <%= @picture.title %>
 </p>
-
 <p>
   <strong>Content:</strong>
   <%= @picture.content %>
 </p>
-
 <p>
   <strong>Image:</strong>
   <%= image_tag @picture.image.url %>
@@ -21,7 +19,6 @@
 <%= link_to 'お気に入り登録', favorites_path(picture_id: @picture.id), method: :post, class: 'btn btn-primary' %>
 <% end %>
 <% end %>
-
 <div button type="button" class="btn btn-outline-primary">
   <i class="fas fa-backward"></i>
   <%= link_to 'Back', pictures_path %></div>

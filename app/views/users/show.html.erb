@@ -1,7 +1,6 @@
 <h1><%= @user.name %>さんのページ</h1>
 <p>メールアドレス: <%= @user.email %></p>
 <p>プロフィール画像: <%= image_tag(@user.image.url) %></p>
-
 <div button type="button" class="btn btn-outline-primary">
   <i class="fas fa-edit"></i>
   <%= link_to 'Edit', edit_user_path(@user) %> </div>
