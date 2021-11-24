@@ -63,7 +63,7 @@ class PicturesController < ApplicationController
   end
 
   def prohibit_access
-    unless current_user == @picture.user
+    unless current_user.id == @picture.user.id
       redirect_to pictures_path
     end
   end

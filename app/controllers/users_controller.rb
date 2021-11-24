@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  skip_before_action :login_required, only: [:new, :create]
+  before_action :set_user, only: %i[show edit update destroy]
+  skip_before_action :login_required, only: %i[new create]
+  before_action :prohibit_user_edit, only: %i[edit update]
   def new
       @user = User.new
   end
@@ -32,7 +34,15 @@ class UsersController < ApplicationController
   end
   
   private
+  def set_user
+    @user = User.find(params[:id])
+  end
   def user_params
     params.require(:user).permit(:name, :email, :password,   :password_confirmation, :image, :image_cache)
+  end
+  def prohibit_user_edit
+    unless current_user.id == @user.id
+      redirect_to pictures_path
+    end
   end
 end
