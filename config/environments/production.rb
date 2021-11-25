@@ -18,6 +18,6 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
   config.active_record.dump_schema_after_migration = false
-  config.action_mailer.default_url_options = { host: 'https://morning-tundra-66078.herokuapp.com'}
+  config.action_mailer.default_url_options = { host: 'https://morning-tundra-66078.herokuapp.com/'}
   config.action_mailer.delivery_method = :letter_opener_web
 end
