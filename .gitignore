@@ -18,5 +18,6 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+picture_mailer.rb
 .env
 application_mailer.rb
