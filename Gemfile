@@ -12,7 +12,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'carrierwave'
 gem 'bcrypt'
 gem 'rexml'
-gem 'letter_opener_web'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -31,4 +30,5 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'letter_opener_web'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
