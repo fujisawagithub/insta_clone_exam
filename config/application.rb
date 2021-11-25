@@ -1,5 +1,6 @@
 require_relative 'boot'
 require 'rails/all'
+require "picture_mailer"
 Bundler.require(*Rails.groups)
 module IgCloneApp
   class Application < Rails::Application
