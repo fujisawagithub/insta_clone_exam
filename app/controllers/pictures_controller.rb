@@ -5,22 +5,26 @@ class PicturesController < ApplicationController
   def index
     @pictures = Picture.all
   end
+
   def show
     @favorite = current_user.favorites.find_by(picture_id: @picture.id)
   end
+
   def new
-    if params[:back]
-    @picture = Picture.new(picture_params)
-    else
-    @picture = Picture.new
-    end
+    @picture = if params[:back]
+                 Picture.new(picture_params)
+               else
+                 Picture.new
+               end
   end
+
   def confirm
     @picture = current_user.pictures.build(picture_params)
     render :new if @picture.invalid?
   end
-  def edit
-  end
+
+  def edit; end
+
   def create
     @picture = current_user.pictures.build(picture_params)
     respond_to do |format|
@@ -34,6 +38,7 @@ class PicturesController < ApplicationController
       end
     end
   end
+
   def update
     respond_to do |format|
       if @picture.update(picture_params)
@@ -45,6 +50,7 @@ class PicturesController < ApplicationController
       end
     end
   end
+
   def destroy
     @picture.destroy
     respond_to do |format|
@@ -54,6 +60,7 @@ class PicturesController < ApplicationController
   end
 
   private
+
   def set_picture
     @picture = Picture.find(params[:id])
   end
@@ -63,8 +70,6 @@ class PicturesController < ApplicationController
   end
 
   def prohibit_access
-    unless current_user.id == @picture.user.id
-      redirect_to pictures_path
-    end
+    redirect_to pictures_path unless current_user.id == @picture.user.id
   end
 end
